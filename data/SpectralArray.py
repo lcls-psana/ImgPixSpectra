@@ -9,7 +9,7 @@ import sys
 
 #--------------------
 
-class SpectralArray :
+class SpectralArray(object) :
     """Holds everything for 2D spactral array"""
 
 
