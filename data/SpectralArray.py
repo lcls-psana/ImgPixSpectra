@@ -2,6 +2,7 @@
 
 #--------------------
 
+from __future__ import print_function
 import numpy as np
 import os
 import sys
@@ -20,7 +21,7 @@ class SpectralArray :
 
 
     def get_array_from_file (self, fname) :
-        print """Get array from file""", fname
+        print("""Get array from file""", fname)
         self.arr = np.loadtxt(fname, dtype=np.float32)
 
 
@@ -35,7 +36,7 @@ class SpectralArray :
 
 
     def get_shape_from_file (self, fname) :
-        print """Get shape from file""", fname
+        print("""Get shape from file""", fname)
         if os.path.exists(fname) :
             f=open(fname,'r')
             for line in f :
@@ -49,29 +50,29 @@ class SpectralArray :
                 elif key == 'NEVENTS'  : self.nevents = int(val)
                 elif key == 'ARRFNAME' : self.fname   = val
                 else :
-                    print 'The record : %s %s \n is UNKNOWN in get_shape_from_file ()' % (key, val) 
+                    print('The record : %s %s \n is UNKNOWN in get_shape_from_file ()' % (key, val)) 
             f.close()
         else :
-            print 'The file %s does not exist' % (fname)
-            print 'WILL USE DEFAULT CONFIGURATION PARAMETERS'
+            print('The file %s does not exist' % (fname))
+            print('WILL USE DEFAULT CONFIGURATION PARAMETERS')
 
 
     def print_shape_parameters (self) :
         """Print shape parameters"""
-        print 'NPIXELS  :', self.npixels
-        print 'NBINS    :', self.nbins  
-        print 'AMIN     :', self.amin   
-        print 'AMAX     :', self.amax   
-        print 'NEVENTS  :', self.nevents
-        print 'ARRFNAME :', self.fname  
+        print('NPIXELS  :', self.npixels)
+        print('NBINS    :', self.nbins)  
+        print('AMIN     :', self.amin)   
+        print('AMAX     :', self.amax)   
+        print('NEVENTS  :', self.nevents)
+        print('ARRFNAME :', self.fname)  
 
 
     def print_array_subset (self) :
         """Print a few array elements"""
         for pix in range(min(5,self.npixels)) :
-            print '\nPixel', pix, 'spectrum:'
+            print('\nPixel', pix, 'spectrum:')
             for bin in range(self.nbins) :
-                print self.arr[pix][bin],
+                print(self.arr[pix][bin], end=' ')
 
 #--------------------
 

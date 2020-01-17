@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+from __future__ import print_function
 import sys
 
 import h5py
@@ -26,7 +27,7 @@ def get_list_of_input_file_names() :
     #'spv2-cxi49812-r0213-ev-000000-022799.np',
     #'spv2-cxi49812-r0214-ev-000000-025638.np']
 
-    print 'list_of_files = ', list_of_files
+    print('list_of_files = ', list_of_files)
     return list_of_files
 
 #---------------------------------------------------
@@ -35,7 +36,7 @@ def print_time_stamp() :
     """Prints the current local time.""" 
     tloc   = time.localtime(time.time())
     tstamp = time.strftime('%Y-%m-%d %H:%M',tloc)
-    print 'Local time:', tstamp
+    print('Local time:', tstamp)
     #tstart0= time.time()
 
 #---------------------------------------------------
@@ -54,8 +55,8 @@ def spectra_merging(out_fname='sum-of-spectra.np') :
 
     for fname in list_of_files :
         spectra = np.fromfile(fname, dtype=np.int16)
-        print 'Read spectrum from the file :', fname,  
-        print ' shape :', spectra.shape  
+        print('Read spectrum from the file :', fname, end=' ')  
+        print(' shape :', spectra.shape)  
 
         if  spectra_sum == None :
             spectra_sum  = spectra
@@ -64,7 +65,7 @@ def spectra_merging(out_fname='sum-of-spectra.np') :
 
     spectra_sum.tofile(out_fname)
  
-    print 'The merged spectral array is saved in the file =', out_fname
+    print('The merged spectral array is saved in the file =', out_fname)
 
 #---------------------------------------------------
 

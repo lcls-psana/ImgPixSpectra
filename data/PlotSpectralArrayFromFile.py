@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 #--------------------
 # Check input parameters
+from __future__ import print_function
 import SpectralArray as sa
 import numpy as np
 import numpy as np
@@ -8,13 +9,13 @@ import matplotlib.pyplot as plt
 import os
 import sys
 
-print ' sys.argv[0]: ', sys.argv[0]
-print ' len(sys.argv): ', len(sys.argv)
+print(' sys.argv[0]: ', sys.argv[0])
+print(' len(sys.argv): ', len(sys.argv))
 
 if len(sys.argv) == 2 : fname = sys.argv[1]
 else                  : fname = '/reg/neh/home/dubrovin/LCLS/PSANA-test/image.txt'
 
-print 'fname=', fname
+print('fname=', fname)
 
 #--------------------
 # Define graphical methods
@@ -42,7 +43,7 @@ sp.print_shape_parameters ()
 sp.print_array_subset ()
 
 arr_inp = sp.arr
-print arr_inp.shape
+print(arr_inp.shape)
 
 # Test for any camera
 pixmin = 10000
